@@ -5,231 +5,203 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Italian Road Trip Plan: Bergamo to Saas-Fee</title>
     <style>
-        /* Basic styling for better readability and appearance */
+        /* Basic styling */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.7;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa; /* Light grey background */
-            color: #343a40; /* Dark grey text */
+            background-color: #f8f9fa;
+            color: #343a40;
         }
         .container {
-            max-width: 950px; /* Slightly wider */
-            margin: 30px auto; /* More margin */
-            background: #ffffff; /* White background for content */
-            padding: 30px; /* More padding */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Softer shadow */
-            border: 1px solid #dee2e6; /* Light border */
+            max-width: 950px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #dee2e6;
         }
         h1, h2, h3 {
-            color: #005a9c; /* A distinct blue */
-            border-bottom: 2px solid #e9ecef; /* Lighter border */
-            padding-bottom: 8px; /* More padding below heading */
-            margin-top: 25px; /* Space above headings */
+            color: #005a9c;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 8px;
+            margin-top: 25px;
         }
-        h1 {
-            text-align: center;
-            margin-bottom: 30px; /* Space below main title */
-        }
+        h1 { text-align: center; margin-bottom: 30px; }
         details {
-            background: #f1f3f5; /* Lighter background for details */
-            border: 1px solid #dee2e6; /* Consistent border */
-            border-radius: 6px; /* Rounded corners */
-            margin-bottom: 18px; /* Spacing between details */
-            padding: 12px 15px; /* Padding inside details */
-            transition: background-color 0.3s ease; /* Smooth transition */
+            background: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            padding: 12px 15px;
+            transition: background-color 0.3s ease;
         }
-        details:hover {
-            background-color: #e9ecef; /* Slightly darker on hover */
-        }
+        details:hover { background-color: #e9ecef; }
         summary {
-            font-weight: 600; /* Bolder summary */
+            font-weight: 600;
             cursor: pointer;
-            color: #005a9c; /* Matching blue */
-            padding: 8px 0; /* Padding around summary text */
-            list-style: none; /* Remove default marker */
-            display: flex; /* Use flexbox for alignment */
-            align-items: center; /* Vertically align icon and text */
+            color: #005a9c;
+            padding: 8px 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
         }
         summary::before {
-            content: '➕'; /* Plus icon for collapsed */
+            content: '➕';
             color: #005a9c;
-            margin-right: 10px; /* Space after icon */
+            margin-right: 10px;
             font-size: 0.9em;
-            transition: transform 0.2s ease-in-out; /* Rotate animation */
+            transition: transform 0.2s ease-in-out;
         }
-        details[open] summary::before {
-            content: '➖'; /* Minus icon for expanded */
-            transform: rotate(180deg); /* Rotate icon */
-        }
-        details[open] {
-             background: #e9f5ff; /* Different background when open */
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 25px; /* Indentation for lists */
-            margin-top: 10px; /* Space above list */
-        }
-        li {
-            margin-bottom: 10px; /* Spacing between list items */
-            padding-left: 15px; /* Indent list items */
-            position: relative; /* For custom bullet */
-        }
+        details[open] summary::before { content: '➖'; transform: rotate(180deg); }
+        details[open] { background: #e9f5ff; }
+        ul { list-style-type: none; padding-left: 0; /* Reset padding for ul */ margin-top: 10px; } /* Reset padding */
+        li { margin-bottom: 10px; padding-left: 0; position: relative; } /* Reset padding */
+
         /* Default list item bullet style (used in nested details) */
-        details details ul li::before { /* << MODIFIED: Specific rule for nested lists */
-            content: '•'; /* Use standard bullet */
+        details details ul li {
+            padding-left: 15px; /* Indent nested list items */
+        }
+        details details ul li::before {
+            content: '•';
             color: #005a9c;
             font-weight: bold;
             display: inline-block;
             width: 1em;
-            margin-left: -1.5em; /* Position bullet */
+            margin-left: -1.5em;
             position: absolute;
             left: 10px;
         }
-        strong {
-            color: #212529; /* Darker text for emphasis */
-        }
-        .day-plan {
-            margin-top: 15px;
-            border-left: 4px solid #6ea8d9; /* Lighter blue left border */
-            padding-left: 20px;
-        }
-        /* Overview Table Removed */
-        .alternative {
-            background-color: #fff9e6; /* Light yellow for alternatives */
-            border: 1px dashed #ffc107; /* Amber dashed border */
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 6px;
-        }
-        .alternative h4 {
-            color: #b38600; /* Darker yellow heading */
-            margin-top: 0;
-            font-size: 1.1em;
-        }
-        .note {
-            font-style: italic;
-            color: #6c757d; /* Grey for notes */
-            margin-top: 8px;
-            margin-bottom: 15px;
-            font-size: 0.9em;
-            padding-left: 10px;
-            border-left: 3px solid #adb5bd; /* Grey left border for notes */
-        }
-        .important {
-            color: #dc3545; /* Red for important notes */
-            font-weight: bold;
-        }
-        /* Style for nested details */
-        details details {
-             background: #ffffff; /* White background for nested */
-             margin-left: 15px; /* Indent nested */
-             margin-top: 10px;
-             border-color: #e9ecef; /* Lighter border for nested */
-        }
-         details details summary {
-            color: #343a40; /* Darker text for nested summary */
-            font-weight: normal; /* Normal weight */
-         }
-         details details summary::before {
-             content: '➡️'; /* Different icon for nested */
-             color: #6c757d;
-             transform: none; /* No rotation needed */
-         }
-         details details[open] summary::before {
-             content: '⬇️';
-         }
+        strong { color: #212529; }
+        .day-plan { margin-top: 15px; border-left: 4px solid #6ea8d9; padding-left: 20px; }
+        .alternative { background-color: #fff9e6; border: 1px dashed #ffc107; padding: 20px; margin-top: 20px; border-radius: 6px; }
+        .alternative h4 { color: #b38600; margin-top: 0; font-size: 1.1em; }
+        .note { font-style: italic; color: #6c757d; margin-top: 8px; margin-bottom: 15px; font-size: 0.9em; padding-left: 10px; border-left: 3px solid #adb5bd; }
+        .important { color: #dc3545; font-weight: bold; }
 
-         /* Responsive Design */
-         @media (max-width: 768px) {
-            .container {
-                margin: 15px;
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            h2 {
-                font-size: 1.4em;
-            }
-            /* Overview Table Removed */
-            ul {
-                padding-left: 15px; /* Adjusted for smaller screens */
-            }
-             /* Keep nested list padding consistent */
-            details details ul li {
-                 padding-left: 10px; /* Adjusted for smaller screens */
-             }
-             details details ul li::before {
-                 left: 5px; /* Adjusted for smaller screens */
-             }
-         }
-         /* Style for contact info */
-        .contact-info {
-            font-size: 0.9em;
-            color: #495057;
-            margin-left: 5px;
-        }
-        .contact-info a {
-            color: #0056b3;
-            text-decoration: none;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
+        /* Style for nested details */
+        details details { background: #ffffff; margin-left: 15px; margin-top: 10px; border-color: #e9ecef; }
+        details details summary { color: #343a40; font-weight: normal; }
+        details details summary::before { content: '➡️'; color: #6c757d; transform: none; }
+        details details[open] summary::before { content: '⬇️'; }
+
+        /* Style for contact info */
+        .contact-info { font-size: 0.9em; color: #495057; margin-left: 5px; }
+        .contact-info a { color: #0056b3; text-decoration: none; }
+        .contact-info a:hover { text-decoration: underline; }
 
         /* --- Timeline Styles --- */
-        .timeline {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0 0 60px; /* Added left margin to give space for time */
+        .timeline { list-style: none; padding: 0; margin: 20px 0 0 60px; }
+        .timeline li { position: relative; padding-left: 25px; margin-bottom: 15px; padding-bottom: 10px; border-left: 2px solid #adb5bd; }
+        .timeline li::before { content: ''; position: absolute; left: -9px; top: 5px; width: 16px; height: 16px; background-color: #005a9c; border-radius: 50%; border: 2px solid #fff; }
+        .timeline li:last-child { border-left: none; padding-bottom: 0; }
+        .timeline-time { display: block; position: absolute; left: -75px; top: 3px; font-weight: bold; color: #005a9c; width: 60px; text-align: right; font-size: 0.9em; }
+
+        /* --- Culture & Sights List Item Styling --- */
+        details details[open] ul li { /* Target li only inside open Culture/Sights/Food/B&B details */
+            display: flex; /* Align items horizontally */
+            align-items: center; /* Vertically align items */
+            padding-left: 0; /* Reset padding */
+            margin-bottom: 8px;
         }
-        .timeline li {
-            position: relative;
-            padding-left: 25px; /* Space for content after marker */
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-left: 2px solid #adb5bd; /* Timeline vertical line */
+         /* Remove default bullet for these specific lists */
+        details details[open] ul li::before {
+             content: none;
         }
-        /* Timeline marker */
-        .timeline li::before {
-            content: ''; /* Use custom marker */
-            position: absolute;
-            left: -9px; /* Position marker on the line */
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            background-color: #005a9c; /* Blue circle marker */
+
+        /* --- Info Button Styles --- */
+        .info-btn {
+            background-color: #005a9c;
+            color: white;
+            border: none;
             border-radius: 50%;
-            border: 2px solid #fff; /* White border around marker */
-        }
-        .timeline li:last-child {
-            border-left: none; /* No line after last entry */
-            padding-bottom: 0;
-        }
-        .timeline-time {
-            display: block;
-            position: absolute;
-            left: -75px; /* Position time further left */
-            top: 3px;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
             font-weight: bold;
-            color: #005a9c;
-            width: 60px; /* Fixed width for time */
-            text-align: right;
-            font-size: 0.9em; /* Smaller font size */
+            line-height: 18px; /* Center '+' vertically */
+            text-align: center;
+            cursor: pointer;
+            margin-left: 8px; /* Space between text and button */
+            padding: 0;
+            transition: background-color 0.2s ease;
         }
-         /* Responsive Timeline Styles */
+        .info-btn:hover {
+            background-color: #004170;
+        }
+
+        /* --- Modal Styles --- */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+        }
+        .modal-content-box {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 25px 30px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 600px; /* Maximum width */
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .modal-content-box h3 {
+            margin-top: 0;
+            color: #005a9c;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+         .modal-content-box p {
+             line-height: 1.6;
+             font-size: 0.95em;
+         }
+        .close-btn {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Hidden content div */
+        .sight-details {
+            display: none;
+        }
+
+
+         /* --- Responsive Adjustments --- */
+         @media (max-width: 768px) {
+            .container { margin: 15px; padding: 20px; }
+            h1 { font-size: 1.8em; } h2 { font-size: 1.4em; }
+            ul { padding-left: 0; } /* Reset padding */
+             /* Adjust nested list padding */
+            details details ul li { padding-left: 5px; }
+            details details ul li::before { left: -5px; } /* Adjust bullet pos */
+            .modal-content-box { width: 90%; margin: 20% auto; }
+         }
          @media (max-width: 600px) {
-             .timeline { margin-left: 55px; } /* Reduced left margin */
-             .timeline li { padding-left: 20px; } /* Reduced padding */
-             .timeline-time {
-                 left: -60px; /* Adjusted left position */
-                 width: 50px; /* Adjusted width */
-                 font-size: 0.85em; /* Even smaller on mobile */
-             }
+             .timeline { margin-left: 55px; }
+             .timeline li { padding-left: 20px; }
+             .timeline-time { left: -60px; width: 50px; font-size: 0.85em; }
              .timeline li::before { left: -7px; width: 12px; height: 12px; top: 7px;}
+             details details ul li { padding-left: 0; } /* Further adjust nested padding */
+             details details ul li::before { left: -10px; } /* Further adjust bullet pos */
          }
 
     </style>
@@ -255,11 +227,26 @@
                  <details>
                     <summary>🏛️ Culture & Sights (Bergamo - Morning)</summary>
                     <ul>
-                        <li><strong>Città Alta (Upper Town):</strong> The historic heart, accessible by funicular or foot.</li>
-                        <li><strong>Piazza Vecchia:</strong> Main square with Palazzo della Ragione and Torre Civica (Campanone).</li>
-                        <li><strong>Basilica di Santa Maria Maggiore & Cappella Colleoni:</strong> Stunning adjacent religious buildings with intricate interiors.</li>
-                        <li><strong>Venetian Walls (UNESCO):</strong> Walk along sections of the massive 16th-century fortifications for great views.</li>
-                        <li><strong>Funicular:</strong> A fun way to get up to Città Alta.</li>
+                        <li>
+                            <strong>Città Alta (Upper Town)</strong> <button class="info-btn" data-modal-target="bergamo-citta-alta">+</button>
+                            <div class="sight-details" id="bergamo-citta-alta">The historic, walled upper city of Bergamo, dating back to Roman times but flourishing under Venetian rule (15th-18th centuries). It's a beautifully preserved medieval and Renaissance core, offering stunning views and atmosphere. Getting there via the funicular is part of the experience.</div>
+                        </li>
+                        <li>
+                            <strong>Piazza Vecchia</strong> <button class="info-btn" data-modal-target="bergamo-piazza-vecchia">+</button>
+                            <div class="sight-details" id="bergamo-piazza-vecchia">The heart of Città Alta for centuries, considered one of Italy's most beautiful squares. It's surrounded by significant buildings like the Palazzo della Ragione (medieval town hall), the Torre Civica (Campanone - bell tower offering views), and the Contarini Fountain. It represents the civic and administrative center of historic Bergamo.</div>
+                        </li>
+                        <li>
+                            <strong>Basilica di Santa Maria Maggiore & Cappella Colleoni</strong> <button class="info-btn" data-modal-target="bergamo-basilica-colleoni">+</button>
+                            <div class="sight-details" id="bergamo-basilica-colleoni">Adjacent masterpieces. The Basilica (begun 1137) is a Romanesque-Lombard church with a lavish Baroque interior, significant for its intricate marquetry choir stalls. The Cappella Colleoni (15th century) is a Renaissance jewel, a mausoleum for the mercenary captain Bartolomeo Colleoni, showcasing ornate Lombard sculptural decoration. They represent Bergamo's deep religious history and Renaissance artistic patronage.</div>
+                        </li>
+                        <li>
+                            <strong>Venetian Walls (UNESCO)</strong> <button class="info-btn" data-modal-target="bergamo-walls">+</button>
+                            <div class="sight-details" id="bergamo-walls">Over 5km of massive defensive walls built by the Republic of Venice in the 16th century to protect its strategic outpost. Never used in battle, they are remarkably well-preserved and offer panoramic walks with views over the modern city and surrounding plains. A UNESCO World Heritage site (as part of 'Venetian Works of Defence').</div>
+                        </li>
+                        <li>
+                            <strong>Funicular</strong> <button class="info-btn" data-modal-target="bergamo-funicular">+</button>
+                            <div class="sight-details" id="bergamo-funicular">The historic funicular railway connecting the lower city (Città Bassa) with Città Alta since 1887. It provides a scenic and practical way to ascend the steep hill, becoming a charming part of the Bergamo experience itself.</div>
+                        </li>
                     </ul>
                 </details>
                  <details>
@@ -283,12 +270,30 @@
                 <details>
                     <summary>🏛️ Culture & Sights (Verona - Afternoon/Next Morning)</summary>
                      <ul>
-                        <li><strong>Piazza Bra:</strong> Verona's main square, perfect for soaking in the atmosphere. Site of the Arena.</li>
-                        <li><strong>Arena di Verona:</strong> Impressive Roman amphitheater. Consider booking an interior visit or even an opera performance if available/interested.</li>
-                        <li><strong>Casa di Giulietta (Juliet's House):</strong> Visit the famous courtyard and balcony (expect crowds, entrance fee for house museum).</li>
-                        <li><strong>Piazza delle Erbe:</strong> Historic market square with beautiful frescoes on surrounding buildings and the Torre dei Lamberti.</li>
-                        <li><strong>Ponte Pietra:</strong> Roman arch bridge offering lovely views of the Adige River and Castel San Pietro hill.</li>
-                        <li><strong>Castel San Pietro:</strong> Walk or take the funicular up for panoramic views of Verona (especially beautiful at sunset).</li>
+                        <li>
+                            <strong>Piazza Bra</strong> <button class="info-btn" data-modal-target="verona-piazza-bra">+</button>
+                            <div class="sight-details" id="verona-piazza-bra">Verona's largest piazza and one of the largest in Italy, dominated by the Arena. It dates back centuries but took its current form mainly in the 16th-18th centuries. It's the city's main public space, lined with cafes and restaurants, hosting events and serving as the gateway to the historic center. Notable buildings include the Palazzo Barbieri (Town Hall) and the Gran Guardia palace.</div>
+                        </li>
+                        <li>
+                            <strong>Arena di Verona</strong> <button class="info-btn" data-modal-target="verona-arena">+</button>
+                            <div class="sight-details" id="verona-arena">A remarkably well-preserved Roman amphitheater built in the 1st century AD, originally used for gladiatorial contests and public spectacles. It's one of the largest such structures still existing and is world-famous today for hosting large-scale opera performances during the summer festival, making it a unique blend of ancient architecture and living culture. It's a powerful symbol of Verona's Roman past and enduring importance.</div>
+                        </li>
+                        <li>
+                            <strong>Casa di Giulietta (Juliet's House)</strong> <button class="info-btn" data-modal-target="verona-juliet-house">+</button>
+                            <div class="sight-details" id="verona-juliet-house">A medieval house associated with Shakespeare's tragedy "Romeo and Juliet". While the connection to the fictional characters is legendary (likely assigned to the house in the early 20th century), the famous balcony and courtyard statue draw huge crowds. It symbolizes Verona as the city of love and romance, fueled by Shakespeare's enduring story. The interior is a museum dedicated to the legend.</div>
+                        </li>
+                        <li>
+                            <strong>Piazza delle Erbe</strong> <button class="info-btn" data-modal-target="verona-piazza-erbe">+</button>
+                            <div class="sight-details" id="verona-piazza-erbe">Verona's vibrant market square, located on the site of the ancient Roman forum. Lined with historic buildings featuring frescoes (like the Mazzanti Houses), the Torre dei Lamberti, and the Palazzo Maffei (Baroque palace). It has been the commercial and social heart of the city for centuries, still hosting a daily market. The central fountain (Madonna Verona) incorporates a Roman statue.</div>
+                        </li>
+                        <li>
+                            <strong>Ponte Pietra</strong> <button class="info-btn" data-modal-target="verona-ponte-pietra">+</button>
+                            <div class="sight-details" id="verona-ponte-pietra">Verona's oldest bridge, a Roman arch bridge originally built around 100 BC. Destroyed and rebuilt multiple times (most recently after WWII, using original materials), it spans the Adige River connecting the historic center to the Teatro Romano area. It offers picturesque views and represents the city's long history and resilience.</div>
+                        </li>
+                        <li>
+                            <strong>Castel San Pietro</strong> <button class="info-btn" data-modal-target="verona-castel-san-pietro">+</button>
+                            <div class="sight-details" id="verona-castel-san-pietro">A hill overlooking Verona, site of fortifications since Roman times. The current structure is an Austrian barracks built in the 19th century on the ruins of earlier castles. While the building itself isn't typically open, the panoramic terrace (Piazzale Castel San Pietro) offers the most iconic viewpoint over Verona's historic center, the river, and its bridges. Accessible by stairs or a modern funicular.</div>
+                        </li>
                     </ul>
                 </details>
                 <details>
@@ -328,12 +333,30 @@
                  <details>
                     <summary>🏛️ Culture & Sights (Padova - Afternoon/Next Morning)</summary>
                      <ul>
-                        <li><strong>Cappella degli Scrovegni:</strong> <span class="important">Absolute must-see for Giotto's frescoes. Booking online far in advance is ESSENTIAL.</span></li>
-                        <li><strong>Prato della Valle:</strong> Immense elliptical square with a central island surrounded by statues. Great for a walk.</li>
-                        <li><strong>Basilica di Sant'Antonio (Il Santo):</strong> Grand pilgrimage church holding the tomb of St. Anthony.</li>
-                        <li><strong>Palazzo della Ragione:</strong> Medieval town hall with a vast frescoed hall, located between Piazza delle Erbe and Piazza della Frutta (historic market squares).</li>
-                        <li><strong>Orto Botanico:</strong> Padua's botanical garden is a UNESCO site, one of the oldest in the world.</li>
-                        <li><strong>Caffè Pedrocchi:</strong> Historic café, worth seeing even just from the outside or for a quick coffee.</li>
+                        <li>
+                            <strong>Cappella degli Scrovegni</strong> <button class="info-btn" data-modal-target="padova-scrovegni">+</button> <span class="important">(Booking Essential!)</span>
+                            <div class="sight-details" id="padova-scrovegni">An absolute masterpiece of Western art. Commissioned by the banker Enrico Scrovegni around 1303-1305, the chapel's interior is entirely covered by frescoes painted by Giotto. These depict the lives of the Virgin Mary and Christ with groundbreaking realism, emotion, and narrative clarity, marking a pivotal moment in the transition from Byzantine/Gothic art to the Renaissance. Its preservation and controlled access underscore its immense cultural value.</div>
+                        </li>
+                        <li>
+                            <strong>Prato della Valle</strong> <button class="info-btn" data-modal-target="padova-prato">+</button>
+                            <div class="sight-details" id="padova-prato">One of Europe's largest public squares, unique for its elliptical shape with a central island (Isola Memmia) surrounded by a canal lined with 78 statues of famous figures connected to Padua. Historically a site for markets and gatherings since Roman times, its current layout dates mainly from the late 18th century. It remains a major public space for events, markets, and leisure.</div>
+                        </li>
+                        <li>
+                            <strong>Basilica di Sant'Antonio (Il Santo)</strong> <button class="info-btn" data-modal-target="padova-basilica">+</button>
+                            <div class="sight-details" id="padova-basilica">A major Roman Catholic pilgrimage site, housing the tomb and relics of Saint Anthony of Padua. Construction began around 1232, shortly after the saint's death. Its architecture is a fascinating blend of Romanesque, Gothic, and Byzantine elements, reflecting Padua's position as a cultural crossroads. It holds immense religious significance and contains numerous artistic treasures, including bronze sculptures by Donatello.</div>
+                        </li>
+                        <li>
+                            <strong>Palazzo della Ragione</strong> <button class="info-btn" data-modal-target="padova-ragione">+</button>
+                            <div class="sight-details" id="padova-ragione">Padua's medieval town hall and courthouse, built from 1218. Its most striking feature is the vast upper hall, the "Salone," one of the largest medieval halls unsupported by columns. Originally covered in astrological frescoes (repainted after a fire), it symbolizes the civic power and commercial importance of medieval Padua. It sits between the historic market squares, Piazza delle Erbe and Piazza della Frutta.</div>
+                        </li>
+                        <li>
+                            <strong>Orto Botanico</strong> <button class="info-btn" data-modal-target="padova-orto">+</button>
+                            <div class="sight-details" id="padova-orto">Founded in 1545, it's the world's oldest academic botanical garden still in its original location (UNESCO World Heritage site). Established by the University of Padua for the study of medicinal plants ('simples'), it played a key role in the development of botany and medicine. It retains its original layout and houses a vast collection of plants, including historic specimens.</div>
+                        </li>
+                        <li>
+                            <strong>Caffè Pedrocchi</strong> <button class="info-btn" data-modal-target="padova-pedrocchi">+</button>
+                            <div class="sight-details" id="padova-pedrocchi">A historic neoclassical café opened in 1831, known as the "café without doors" because it was originally open 24/7. It was a major meeting place for students, intellectuals, and politicians, playing a role in the Risorgimento (Italian unification) uprisings of 1848. Its opulent themed rooms (like the Egyptian Room) reflect 19th-century tastes and its status as a cultural institution.</div>
+                        </li>
                     </ul>
                 </details>
                  <details>
@@ -376,10 +399,22 @@
                  <details>
                     <summary>🏛️ Culture & Sights (Vicenza - Brief Stop)</summary>
                       <ul>
-                        <li><strong>Piazza dei Signori:</strong> The heart of Vicenza, dominated by Palladio's Basilica.</li>
-                        <li><strong>Basilica Palladiana:</strong> Andrea Palladio's stunning loggia wrapped around the medieval Palazzo della Ragione. Admire the architecture.</li>
-                        <li><strong>Teatro Olimpico:</strong> Palladio's final masterpiece, a Renaissance theatre with an incredible fixed stage set (allow ~1 hour if visiting inside).</li>
-                         <li><strong>Corso Palladio:</strong> Stroll along the main street lined with elegant palaces, many by Palladio.</li>
+                        <li>
+                            <strong>Piazza dei Signori</strong> <button class="info-btn" data-modal-target="vicenza-piazza">+</button>
+                            <div class="sight-details" id="vicenza-piazza">The main square and historic heart of Vicenza, representing its civic and political center under Venetian rule. It's dominated by Andrea Palladio's Basilica Palladiana and the adjacent Torre Bissara (clock tower). The Loggia del Capitaniato, another Palladio work, faces the Basilica. The square embodies Vicenza's identity as "Palladio's City."</div>
+                        </li>
+                        <li>
+                            <strong>Basilica Palladiana</strong> <button class="info-btn" data-modal-target="vicenza-basilica">+</button>
+                            <div class="sight-details" id="vicenza-basilica">Not a church, but Vicenza's medieval Palazzo della Ragione (town hall), dramatically encased by Andrea Palladio's innovative Renaissance loggias (arcades) built between 1549 and 1614. This project established Palladio's fame. The distinctive double-layered structure with Serlian arches is a masterpiece of architectural harmony and ingenuity, a key monument of the Italian Renaissance (UNESCO site).</div>
+                        </li>
+                        <li>
+                            <strong>Teatro Olimpico</strong> <button class="info-btn" data-modal-target="vicenza-teatro">+</button>
+                            <div class="sight-details" id="vicenza-teatro">The final work of Andrea Palladio (completed by Scamozzi after his death, 1580-1585), it's the oldest surviving indoor theatre of the Renaissance. Inspired by ancient Roman theatres, it features a semi-elliptical seating area and an elaborate stage front. Most famously, it includes Scamozzi's stunning fixed stage scenery depicting the streets of Thebes, using clever perspective to create an illusion of depth. A UNESCO World Heritage site.</div>
+                        </li>
+                         <li>
+                             <strong>Corso Palladio</strong> <button class="info-btn" data-modal-target="vicenza-corso">+</button>
+                             <div class="sight-details" id="vicenza-corso">The main street of Vicenza's historic center, tracing the path of the ancient Roman Decumanus Maximus. It's lined with numerous elegant palaces (palazzi), many designed by Andrea Palladio or his followers, showcasing the city's wealth and architectural heritage during the Renaissance and subsequent centuries. It offers a visual journey through Vicenza's architectural evolution.</div>
+                         </li>
                     </ul>
                 </details>
                 <details>
@@ -395,11 +430,26 @@
                  <details>
                     <summary>🏛️ Culture & Sights (Brescia - Afternoon/Next Morning)</summary>
                        <ul>
-                        <li><strong>Piazza della Loggia:</strong> Beautiful Renaissance square with the Palazzo della Loggia (town hall) and the fascinating astronomical clock tower.</li>
-                        <li><strong>Piazza Paolo VI (Piazza Duomo):</strong> See the contrast between the round, Romanesque Duomo Vecchio (Old Cathedral) and the larger, Baroque/Neoclassical Duomo Nuovo (New Cathedral).</li>
-                        <li><strong>Roman Brescia (UNESCO Site):</strong> Explore the Capitolium (Roman temple) and the nearby Roman Theatre ruins. Impressive remains.</li>
-                        <li><strong>Museo di Santa Giulia (UNESCO Site):</strong> Outstanding city museum housed in a vast monastic complex. Covers history from prehistory to the Venetian age. Allow significant time (2-4 hours) if you plan a full visit.</li>
-                         <li><strong>Castello di Brescia:</strong> Fortress on Cidneo Hill overlooking the city. Offers great views, houses museums (Arms Museum, Risorgimento Museum), and has pleasant grounds for a walk.</li>
+                        <li>
+                            <strong>Piazza della Loggia</strong> <button class="info-btn" data-modal-target="brescia-loggia">+</button>
+                            <div class="sight-details" id="brescia-loggia">One of Italy's finest Renaissance squares, developed under Venetian rule from the late 15th century. It's dominated by the Palazzo della Loggia (city hall), a masterpiece of Lombard-Venetian Renaissance architecture. Opposite stands the fascinating astronomical clock tower (Torre dell'Orologio). The square represents Brescia's civic pride and its connection to Venetian artistic trends.</div>
+                        </li>
+                        <li>
+                            <strong>Piazza Paolo VI (Piazza Duomo)</strong> <button class="info-btn" data-modal-target="brescia-duomo">+</button>
+                            <div class="sight-details" id="brescia-duomo">The religious heart of Brescia, unique for featuring two cathedrals side-by-side. The Duomo Vecchio (Old Cathedral, also called La Rotonda) is a rare and important example of circular Romanesque architecture (11th century). The Duomo Nuovo (New Cathedral) is a larger Baroque and Neoclassical structure built over centuries (1604-1825). The square also includes the Broletto, the medieval town hall complex.</div>
+                        </li>
+                        <li>
+                            <strong>Roman Brescia (UNESCO Site)</strong> <button class="info-btn" data-modal-target="brescia-roman">+</button>
+                            <div class="sight-details" id="brescia-roman">Site of the ancient Roman city of Brixia. Key elements include the Capitolium (73 AD), a well-preserved temple dedicated to Jupiter, Juno, and Minerva, built by Emperor Vespasian, containing original floors and recovered artifacts including the famous Winged Victory statue. Nearby are substantial remains of the Roman Theatre (1st-3rd centuries AD). This area is part of the UNESCO site "Longobards in Italy. Places of the Power," highlighting the transition from Roman to early medieval times.</div>
+                        </li>
+                        <li>
+                            <strong>Museo di Santa Giulia (UNESCO Site)</strong> <button class="info-btn" data-modal-target="brescia-santa-giulia">+</button>
+                            <div class="sight-details" id="brescia-santa-giulia">An outstanding city museum housed within the vast monastic complex of San Salvatore-Santa Giulia, founded in the 8th century by the Lombard King Desiderius. The museum's exhibits trace Brescia's history from prehistory through Roman, Lombard, Carolingian, and Venetian periods, displayed within the historic structures themselves (including Roman domus ruins and medieval churches like San Salvatore and Santa Maria in Solario). It's a unique museum-in-a-monument and part of the Longobard UNESCO site.</div>
+                        </li>
+                         <li>
+                             <strong>Castello di Brescia</strong> <button class="info-btn" data-modal-target="brescia-castello">+</button>
+                             <div class="sight-details" id="brescia-castello">Known as the "Falcon of Italy," this fortress complex sits atop Cidneo Hill, overlooking the city. Its origins trace back to Roman times, with significant medieval (Visconti era) and Renaissance (Venetian era) fortifications still visible, including towers and drawbridges. It offers panoramic views, houses the Luigi Marzoli Arms Museum (one of Europe's largest collections of arms and armour) and the Risorgimento Museum, and provides pleasant grounds for walking.</div>
+                         </li>
                     </ul>
                 </details>
                 <details>
@@ -445,10 +495,22 @@
                      <details>
                         <summary>🏛️ Culture & Sights (Arona - Evening/Next Morning)</summary>
                            <ul>
-                             <li><strong>Lungolago Marconi:</strong> The pleasant lakeside promenade, perfect for an evening or morning walk.</li>
-                             <li><strong>Rocca Borromea di Arona:</strong> Public park containing the ruins of a Borromeo castle, offering fantastic panoramic views over the southern end of Lake Maggiore.</li>
-                             <li><strong>Statua di San Carlo Borromeo (Sancarlone):</strong> Short drive/walk outside town. Enormous 17th-century hollow copper statue you can climb inside for views.</li>
-                             <li><strong>Arona Town Center:</strong> Explore the streets around Piazza del Popolo.</li>
+                             <li>
+                                 <strong>Lungolago Marconi</strong> <button class="info-btn" data-modal-target="arona-lungolago">+</button>
+                                 <div class="sight-details" id="arona-lungolago">Arona's pleasant lakeside promenade along the shores of Lake Maggiore. It offers beautiful views of the lake, the Angera fortress across the water, and the surrounding hills. It's ideal for a relaxing walk, enjoying the atmosphere, and accessing cafes and restaurants.</div>
+                             </li>
+                             <li>
+                                 <strong>Rocca Borromea di Arona</strong> <button class="info-btn" data-modal-target="arona-rocca">+</button>
+                                 <div class="sight-details" id="arona-rocca">A public park situated on a hill overlooking Arona, containing the ruins of a castle originally belonging to the powerful Borromeo family. While the castle itself is largely ruined (destroyed by Napoleonic forces), the park provides exceptional panoramic views of the southern part of Lake Maggiore and the town below.</div>
+                             </li>
+                             <li>
+                                 <strong>Statua di San Carlo Borromeo (Sancarlone)</strong> <button class="info-btn" data-modal-target="arona-sancarlone">+</button>
+                                 <div class="sight-details" id="arona-sancarlone">Located just north of Arona, this colossal copper statue (completed 1698) depicts Saint Charles Borromeo, a prominent 16th-century cardinal and Archbishop of Milan born in Arona. Standing over 35 meters tall (including pedestal), it was the largest hollow statue in the world for nearly two centuries. Visitors can climb inside for views through the saint's eyes, symbolizing his benevolent watch over the region.</div>
+                             </li>
+                             <li>
+                                 <strong>Arona Town Center</strong> <button class="info-btn" data-modal-target="arona-center">+</button>
+                                 <div class="sight-details" id="arona-center">The historic center revolves around Piazza del Popolo, near the old port. Explore the narrow streets (like Corso Cavour) with shops and cafes, see the Chiesa dei Santi Martiri, and enjoy the lakeside ambiance. It reflects Arona's history as an important trading town on Lake Maggiore.</div>
+                             </li>
                         </ul>
                     </details>
                     <details>
@@ -598,5 +660,63 @@
         <p style="text-align:center; font-weight:bold; margin-top:30px; color: #005a9c;">Have a fantastic and safe road trip!</p>
 
     </div>
+
+    <div id="infoModal" class="modal">
+      <div class="modal-content-box">
+        <span class="close-btn">&times;</span>
+        <h3 id="modalTitle">Sight Information</h3>
+        <p id="modalText">Details about the sight will appear here.</p>
+      </div>
+    </div>
+
+    <script>
+      // Get modal elements
+      const modal = document.getElementById('infoModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalText = document.getElementById('modalText');
+      const closeBtn = modal.querySelector('.close-btn');
+
+      // Get all info buttons
+      const infoBtns = document.querySelectorAll('.info-btn');
+
+      // Add click event listener to each info button
+      infoBtns.forEach(btn => {
+        btn.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent potential default button behavior
+          const targetId = this.getAttribute('data-modal-target');
+          const contentDiv = document.getElementById(targetId);
+          const sightName = this.previousElementSibling.textContent || 'Details'; // Get sight name from preceding sibling (strong tag)
+
+          if (contentDiv) {
+            modalTitle.textContent = sightName;
+            modalText.textContent = contentDiv.textContent;
+            modal.style.display = 'block';
+          }
+        });
+      });
+
+      // Add click event listener to close button
+      closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+
+      // Add click event listener to modal background (to close on outside click)
+      modal.addEventListener('click', function(event) {
+        if (event.target === modal) { // Check if the click was directly on the modal background
+          modal.style.display = 'none';
+        }
+      });
+
+      // Optional: Close modal with Escape key
+      window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' || event.key === 'Esc') {
+          if (modal.style.display === 'block') {
+            modal.style.display = 'none';
+          }
+        }
+      });
+
+    </script>
+
 </body>
 </html>
