@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italian Road Trip Plan: Bergamo to Saas-Fee</title>
+    <style>
+        /* Basic styling for better readability and appearance */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Light grey background */
+            color: #343a40; /* Dark grey text */
+        }
+        .container {
+            max-width: 950px; /* Slightly wider */
+            margin: 30px auto; /* More margin */
+            background: #ffffff; /* White background for content */
+            padding: 30px; /* More padding */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Softer shadow */
+            border: 1px solid #dee2e6; /* Light border */
+        }
+        h1, h2, h3 {
+            color: #005a9c; /* A distinct blue */
+            border-bottom: 2px solid #e9ecef; /* Lighter border */
+            padding-bottom: 8px; /* More padding below heading */
+            margin-top: 25px; /* Space above headings */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px; /* Space below main title */
+        }
+        details {
+            background: #f1f3f5; /* Lighter background for details */
+            border: 1px solid #dee2e6; /* Consistent border */
+            border-radius: 6px; /* Rounded corners */
+            margin-bottom: 18px; /* Spacing between details */
+            padding: 12px 15px; /* Padding inside details */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+        details:hover {
+            background-color: #e9ecef; /* Slightly darker on hover */
+        }
+        summary {
+            font-weight: 600; /* Bolder summary */
+            cursor: pointer;
+            color: #005a9c; /* Matching blue */
+            padding: 8px 0; /* Padding around summary text */
+            list-style: none; /* Remove default marker */
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Vertically align icon and text */
+        }
+        summary::before {
+            content: '➕'; /* Plus icon for collapsed */
+            color: #005a9c;
+            margin-right: 10px; /* Space after icon */
+            font-size: 0.9em;
+            transition: transform 0.2s ease-in-out; /* Rotate animation */
+        }
+        details[open] summary::before {
+            content: '➖'; /* Minus icon for expanded */
+            transform: rotate(180deg); /* Rotate icon */
+        }
+        details[open] {
+             background: #e9f5ff; /* Different background when open */
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 25px; /* Indentation for lists */
+            margin-top: 10px; /* Space above list */
+        }
+        li {
+            margin-bottom: 10px; /* Spacing between list items */
+            padding-left: 15px; /* Indent list items */
+            position: relative; /* For custom bullet */
+        }
+        li::before {
+            content: '•'; /* Custom bullet point */
+            color: #005a9c;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1.5em; /* Position bullet */
+            position: absolute;
+            left: 10px;
+        }
+        strong {
+            color: #212529; /* Darker text for emphasis */
+        }
+        .day-plan {
+            margin-top: 15px;
+            border-left: 4px solid #6ea8d9; /* Lighter blue left border */
+            padding-left: 20px;
+        }
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 0.95em; /* Slightly smaller table font */
+        }
+        .overview-table th, .overview-table td {
+            border: 1px solid #dee2e6; /* Lighter table borders */
+            padding: 10px 12px; /* More padding in cells */
+            text-align: left;
+        }
+        .overview-table th {
+            background-color: #e9f5ff; /* Light blue header */
+            color: #005a9c; /* Dark blue text */
+            font-weight: 600;
+        }
+        .alternative {
+            background-color: #fff9e6; /* Light yellow for alternatives */
+            border: 1px dashed #ffc107; /* Amber dashed border */
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+        .alternative h4 {
+            color: #b38600; /* Darker yellow heading */
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+        .note {
+            font-style: italic;
+            color: #6c757d; /* Grey for notes */
+            margin-top: 8px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            padding-left: 10px;
+            border-left: 3px solid #adb5bd; /* Grey left border for notes */
+        }
+        .important {
+            color: #dc3545; /* Red for important notes */
+            font-weight: bold;
+        }
+        /* Style for nested details */
+        details details {
+             background: #ffffff; /* White background for nested */
+             margin-left: 15px; /* Indent nested */
+             margin-top: 10px;
+             border-color: #e9ecef; /* Lighter border for nested */
+        }
+         details details summary {
+            color: #343a40; /* Darker text for nested summary */
+            font-weight: normal; /* Normal weight */
+         }
+         details details summary::before {
+             content: '➡️'; /* Different icon for nested */
+             color: #6c757d;
+             transform: none; /* No rotation needed */
+         }
+         details details[open] summary::before {
+             content: '⬇️';
+         }
+
+         /* Responsive Design */
+         @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            .overview-table th, .overview-table td {
+                padding: 8px;
+            }
+            ul {
+                padding-left: 15px;
+            }
+            li {
+                padding-left: 10px;
+            }
+             li::before {
+                 left: 5px;
+             }
+         }
+         /* Style for contact info */
+        .contact-info {
+            font-size: 0.9em;
+            color: #495057;
+            margin-left: 5px;
+        }
+        .contact-info a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Italian Road Trip: Bergamo to Saas-Fee</h1>
+        <p class="note">Generated on: Sunday, April 20, 2025. All times are estimates and suggestions. Please verify opening hours, booking requirements (especially for attractions like the Scrovegni Chapel), and real-time traffic/road conditions before and during your trip. <span class="important">Contact information for restaurants/B&Bs is provided where found but can change; please verify before relying on it.</span> Be mindful of ZTL zones (Limited Traffic Zones) in city centers and plan parking in advance. Highway tolls (Autostrada) apply on major routes in Italy. A Swiss Vignette sticker is required for using Swiss highways (needed for Option 2, and the final leg of Option 1).</p>
+
+        <h2>Overview Plan & Estimated Driving Times</h2>
+        <table class="overview-table">
+             <thead>
+                <tr>
+                    <th>Segment</th>
+                    <th>Estimated Driving Time</th>
+                    <th>Approx. Distance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bergamo Airport (BGY) to Verona</td>
+                    <td>~1 hr 20 min</td>
+                    <td>~116 km</td>
+                </tr>
+                <tr>
+                    <td>Verona to Padova</td>
+                    <td>~1 hr 15 min</td>
+                    <td>~85 km</td>
+                </tr>
+                <tr>
+                    <td>Padova to Vicenza</td>
+                    <td>~40 min</td>
+                    <td>~36 km</td>
+                </tr>
+                <tr>
+                    <td>Vicenza to Brescia</td>
+                    <td>~1 hr</td>
+                    <td>~90 km</td>
+                </tr>
+                <tr>
+                    <td>Brescia to Arona (Option 1)</td>
+                    <td>~1 hr 45 min</td>
+                    <td>~153 km</td>
+                </tr>
+                 <tr>
+                    <td>Arona to Saas-Fee (Option 1)</td>
+                    <td>~2 hr 20 min*</td>
+                    <td>~136 km</td>
+                </tr>
+                <tr>
+                    <td>Brescia to Saas-Fee (Option 2)</td>
+                    <td>~3 hr 50 min*</td>
+                    <td>~289 km</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note">*Travel times to Saas-Fee are highly dependent on the Simplon Pass conditions and potential use of the Simplon car train (Iselle di Trasquera - Brig). <span class="important">It is crucial to check the Simplon Pass (Passo del Sempione) status and weather forecast before driving this leg, especially outside of peak summer months.</span> Remember, Saas-Fee is a car-free village; you must park in the designated parking garage at the entrance.</p>
+
+        <h2>Detailed Daily Agenda</h2>
+
+        <details>
+            <summary><strong>Monday: Bergamo to Verona</strong></summary>
+            <div class="day-plan">
+                 <ul>
+                    <li><strong>Morning (e.g., 10:00 AM):</strong> Depart from Bergamo area.</li>
+                    <li><strong>Drive:</strong> Bergamo to Verona (~1 hr 20 min via A4).</li>
+                    <li><strong>Midday (e.g., 11:30 AM):</strong> Arrive in Verona. Check into your B&B, leave luggage. Find parking (consider options outside ZTL if staying centrally).</li>
+                    <li><strong>Lunch (Optional):</strong> Grab a casual lunch near your accommodation or Piazza Bra.</li>
+                    <li><strong>Afternoon:</strong> Begin exploring Verona. Start with Piazza Bra, admire the Arena di Verona from the outside.</li>
+                    <li><strong>Evening (e.g., 7:30 PM):</strong> Dinner at an authentic Verona restaurant.</li>
+                    <li><strong>Overnight:</strong> Verona.</li>
+                </ul>
+                <details>
+                    <summary>🏛️ Culture & Sights (Verona - Afternoon/Next Morning)</summary>
+                    <ul>
+                        <li><strong>Piazza Bra:</strong> Verona's main square, perfect for soaking in the atmosphere. Site of the Arena.</li>
+                        <li><strong>Arena di Verona:</strong> Impressive Roman amphitheater. Consider booking an interior visit or even an opera performance if available/interested.</li>
+                        <li><strong>Casa di Giulietta (Juliet's House):</strong> Visit the famous courtyard and balcony (expect crowds, entrance fee for house museum).</li>
+                        <li><strong>Piazza delle Erbe:</strong> Historic market square with beautiful frescoes on surrounding buildings and the Torre dei Lamberti.</li>
+                        <li><strong>Ponte Pietra:</strong> Roman arch bridge offering lovely views of the Adige River and Castel San Pietro hill.</li>
+                        <li><strong>Castel San Pietro:</strong> Walk or take the funicular up for panoramic views of Verona (especially beautiful at sunset).</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>🍽️ Food Suggestions (Verona - Dinner)</summary>
+                    <ul>
+                        <li><strong>Osteria il Bertoldo:</strong> Often cited for authentic local dishes and a cozy vibe. (Vicolo Cadrega) <span class="contact-info">(Search online for current contact details)</span></li>
+                        <li><strong>Trattoria al Pompiere:</strong> Historic spot known for quality cured meats and traditional Veronese food. (Vicolo Regina d'Ungheria) <span class="contact-info">(Search online for current contact details)</span></li>
+                        <li><strong>Osteria Sottoriva:</strong> Simple, traditional osteria located under the porticoes near the river. (Via Sottoriva) <span class="contact-info">Phone: <a href="tel:+390458014323">+39 045 801 4323</a></span></li>
+                        <li><span class="note">Look for simple trattorias or osterias in the side streets away from the most tourist-heavy spots. Try local pasta 'Bigoli' or 'Risotto all'Amarone'.</span></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>🛏️ B&B Suggestions (Verona)</summary>
+                    <ul>
+                        <li><strong>Truly Verona:</strong> Often offers apartments/rooms in central locations. <span class="contact-info">(Search online for current contact details)</span></li>
+                        <li><strong>Verona House Aparthotel:</strong> Apartments offering more space. <span class="contact-info">(Search online for current contact details)</span></li>
+                        <li><strong>B&B Options in Centro Storico:</strong> <span class="contact-info"><a href="https://www.booking.com/searchresults.html?ss=Verona+Centro+Storico&dest_type=district&group_adults=2&no_rooms=1&label=gen173nr-1DCAEoggI46AdIM1gEaMIBiAEBmAEhuAEXyAEM2AED6AEBiAIBqAIDuAK1uPKsBsACAdICJGU3YjYxODVjLTcwODQtNDc2OC05YjI1LTYyYzM0ZjYwYjQ5NNgCBOACAQ&sid=YOUR_SESSION_ID&dest_id=SOME_ID&nflt=ht_id%3D201" target="_blank">Search on Booking.com</a> or similar platforms for current availability and reviews.</span></li>
+                        <li><span class="note">Prioritize places with good recent reviews mentioning cleanliness and location. Consider parking availability/cost.</span></li>
+                    </ul>
+                </details>
+            </div>
+        </details>
+
+        <details>
+            <summary><strong>Tuesday: Discover Verona & Travel to Padova</strong></summary>
+            <div class="day-plan">
+                 <ul>
+                    <li><strong>Morning (9:00 AM - 1:00 PM):</strong> Continue exploring Verona (e.g., visit the Arena interior, Juliet's House museum, climb Torre dei Lamberti, walk across Ponte Pietra).</li>
+                    <li><strong>Lunch (1:00 PM):</strong> Enjoy a final Veronese lunch.</li>
+                    <li><strong>Afternoon (e.g., 2:30 PM):</strong> Depart from Verona.</li>
+                    <li><strong>Drive:</strong> Verona to Padova (~1 hr 15 min via A4).</li>
+                    <li><strong>Late Afternoon (e.g., 4:00 PM):</strong> Arrive in Padova. Check into B&B, find parking.</li>
+                     <li><strong>Evening:</strong> First exploration of Padova. Walk around Prato della Valle as the sun sets, see the Basilica di Sant'Antonio from outside.</li>
+                    <li><strong>Dinner (e.g., 7:30 PM):</strong> Dinner in Padova.</li>
+                    <li><strong>Overnight:</strong> Padova.</li>
+                </ul>
+                 <details>
+                    <summary>🏛️ Culture & Sights (Padova - Afternoon/Next Morning)</summary>
+                    <ul>
+                        <li><strong>Cappella degli Scrovegni:</strong> <span class="important">Absolute must-see for Giotto's frescoes. Booking online far in advance is ESSENTIAL.</span></li>
+                        <li><strong>Prato della Valle:</strong> Immense elliptical square with a central island surrounded by statues. Great for a walk.</li>
+                        <li><strong>Basilica di Sant'Antonio (Il Santo):</strong> Grand pilgrimage church holding the tomb of St. Anthony.</li>
+                        <li><strong>Palazzo della Ragione:</strong> Medieval town hall with a vast frescoed hall, located between Piazza delle Erbe and Piazza della Frutta (historic market squares).</li>
+                        <li><strong>Orto Botanico:</strong> Padua's botanical garden is a UNESCO site, one of the oldest in the world.</li>
+                        <li><strong>Caffè Pedrocchi:</strong> Historic café, worth seeing even just from the outside or for a quick coffee.</li>
+                    </ul>
+                </details>
+                 <details>
+                    <summary>🍽️ Food Suggestions (Padova - Dinner)</summary>
+                    <ul>
+                        <li><strong>Osteria dal Capo:</strong> Popular local spot known for traditional dishes. (Via Obizzi) <span class="contact-info">Website: <a href="http://www.osteriadalcapo.it" target="_blank">osteriadalcapo.it</a> | Phone: <a href="tel:+39049663105">+39 049 663105</a></span></li>
+                        <li><strong>Enoteca La Moscheta:</strong> Wine bar offering 'cicchetti' and simple dishes. (Corso Milano) <span class="contact-info">Website: <a href="http://www.enotecalamoscheta.it" target="_blank">enotecalamoscheta.it</a> | Phone: <a href="tel:+39049660946">+39 049 660946</a></span></li>
+                        <li><strong>Trattoria Isola di Caprera:</strong> Long-standing trattoria serving classic Padovan cuisine. (Via Marsala) <span class="contact-info">(Search online for current contact details)</span></li>
+                        <li><span class="note">Padova is great for 'aperitivo' with cicchetti. Look for 'Bacari' (simple wine bars). Try 'Bigoli in salsa' (pasta with anchovy sauce) or 'Gallina Padovana' (Paduan hen).</span></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>🛏️ B&B Suggestions (Padova)</summary>
+                    <ul>
+                         <li><strong>CIVICO 57 Al Santo:</strong> Well-reviewed B&B near the Basilica. <span class="contact-info">Phone: <a href="tel:+393465603950">+39 346 560 3950</a> (Verify number)</span></li>
+                         <li><strong>Massimago Wine Tower:</strong> Unique stay in a tower. <span class="contact-info">Website: <a href="https://winetower.massimago.com/en/" target="_blank">winetower.massimago.com</a> | Phone: <a href="tel:+393288918977">+39 328 891 8977</a></span></li>
+                         <li><strong>Al Fagiano Art Hotel:</strong> Hotel option often praised for location. <span class="contact-info">Phone: <a href="tel:+390498750073">+39 0498 750073</a></span></li>
+                         <li><span class="note">Look for accommodation within walking distance of the Scrovegni Chapel or Prato della Valle for convenience. Padova's center is quite walkable.</span></li>
+                    </ul>
+                </details>
+            </div>
+        </details>
+
+        <details>
+            <summary><strong>Wednesday: Discover Padova, Lunch in Vicenza, Travel to Brescia</strong></summary>
+            <div class="day-plan">
+                 <ul>
+                    <li><strong>Morning (9:00 AM - 12:00 PM):</strong> Finish exploring Padova (visit the Scrovegni Chapel - *booked slot crucial*, Basilica interior, markets).</li>
+                    <li><strong>Late Morning (e.g., 12:00 PM):</strong> Depart from Padova.</li>
+                    <li><strong>Drive:</strong> Padova to Vicenza (~40 min via A4).</li>
+                    <li><strong>Lunch & Brief Exploration (e.g., 12:45 PM - 2:30 PM):</strong> Arrive in Vicenza. Park near the center. Walk through Piazza dei Signori, admire the Basilica Palladiana and Teatro Olimpico exteriors. Have lunch.</li>
+                    <li><strong>Afternoon (e.g., 2:30 PM):</strong> Depart from Vicenza.</li>
+                    <li><strong>Drive:</strong> Vicenza to Brescia (~1 hr via A4).</li>
+                    <li><strong>Late Afternoon (e.g., 3:30 PM):</strong> Arrive in Brescia. Check into B&B.</li>
+                     <li><strong>Evening:</strong> Initial walk around Brescia's center - Piazza della Loggia is stunning in the evening light.</li>
+                    <li><strong>Dinner (e.g., 7:30 PM):</strong> Dinner in Brescia.</li>
+                    <li><strong>Overnight:</strong> Brescia.</li>
+                </ul>
+                 <details>
+                    <summary>🏛️ Culture & Sights (Vicenza - Brief Stop)</summary>
+                    <ul>
+                        <li><strong>Piazza dei Signori:</strong> The heart of Vicenza, dominated by Palladio's Basilica.</li>
+                        <li><strong>Basilica Palladiana:</strong> Andrea Palladio's stunning loggia wrapped around the medieval Palazzo della Ragione. Admire the architecture.</li>
+                        <li><strong>Teatro Olimpico:</strong> Palladio's final masterpiece, a Renaissance theatre with an incredible fixed stage set (allow ~1 hour if visiting inside).</li>
+                         <li><strong>Corso Palladio:</strong> Stroll along the main street lined with elegant palaces, many by Palladio.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>🍽️ Food Suggestions (Vicenza - Lunch)</summary>
+                    <ul>
+                        <li><strong>Antica Casa della Malvasia:</strong> Simple, traditional osteria near Piazza dei Signori. (Contrà Morette) <span class="contact-info">Phone: <a href="tel:+390444543704">+39 0444 543704</a></span></li>
+                        <li><strong>Il Ceppo Gastronomia & Bistrot:</strong> High-quality deli with seating. (Corso Palladio) <span class="contact-info">Website: <a href="https://gastronomiailceppo.com/" target="_blank">gastronomiailceppo.com</a> | Phone: <a href="tel:+390444544414">+39 0444 544414</a></span></li>
+                        <li><strong>Osteria Monelli:</strong> Casual spot often recommended for typical Vicentino food. (Contra Ponte S.Paolo) <span class="contact-info">Phone: <a href="tel:+390444041833">+39 0444 041833</a></span></li>
+                        <li><span class="note">A quick lunch allows more time for travel/Brescia. Try 'Baccalà alla Vicentina' if offered and you're feeling adventurous!</span></li>
+                    </ul>
+                </details>
+                 <details>
+                    <summary>🏛️ Culture & Sights (Brescia - Afternoon/Next Morning)</summary>
+                     <ul>
+                        <li><strong>Piazza della Loggia:</strong> Beautiful Renaissance square with the Palazzo della Loggia (town hall) and the fascinating astronomical clock tower.</li>
+                        <li><strong>Piazza Paolo VI (Piazza Duomo):</strong> See the contrast between the round, Romanesque Duomo Vecchio (Old Cathedral) and the larger, Baroque/Neoclassical Duomo Nuovo (New Cathedral).</li>
+                        <li><strong>Roman Brescia (UNESCO Site):</strong> Explore the Capitolium (Roman temple) and the nearby Roman Theatre ruins. Impressive remains.</li>
+                        <li><strong>Museo di Santa Giulia (UNESCO Site):</strong> Outstanding city museum housed in a vast monastic complex. Covers history from prehistory to the Venetian age. Allow significant time (2-4 hours) if you plan a full visit.</li>
+                         <li><strong>Castello di Brescia:</strong> Fortress on Cidneo Hill overlooking the city. Offers great views, houses museums (Arms Museum, Risorgimento Museum), and has pleasant grounds for a walk.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>🍽️ Food Suggestions (Brescia - Dinner)</summary>
+                    <ul>
+                         <li><strong>Osteria al Bianchi:</strong> Historic and very popular osteria serving classic Brescian dishes. (Via Gasparo da Salò) <span class="contact-info">Website: <a href="https://www.osteriaalbianchi.it/" target="_blank">osteriaalbianchi.it</a> | Phone: <a href="tel:+39030292328">+39 030 292328</a></span></li>
+                         <li><strong>Trattoria Porteri:</strong> Well-regarded family-run trattoria offering traditional local cuisine. (Via Trento) <span class="contact-info">(Search online for current contact details)</span></li>
+                         <li><strong>La Vineria:</strong> Good selection of wines with accompanying dishes. (Via Dieci Giornate) <span class="contact-info">Website: <a href="https://www.lavineriabrescia.it/" target="_blank">lavineriabrescia.it</a> | Phone: <a href="tel:+39030280543">+39 030 280543</a></span></li>
+                         <li><span class="note">Brescia is known for 'Casoncelli alla Bresciana' (meat-filled pasta) and 'Manzo all'olio di Rovato' (slow-cooked beef). Franciacorta sparkling wine is produced nearby.</span></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>🛏️ B&B Suggestions (Brescia)</summary>
+                    <ul>
+                         <li><strong>B&B CorsoMatteotti62:</strong> Centrally located in a historic palace. <span class="contact-info">Website: <a href="http://www.corsomatteotti62.com/" target="_blank">corsomatteotti62.com</a> | Phone: <a href="tel:+393382620655">+39 338 262 0655</a></span></li>
+                         <li><strong>Centro Paolo VI:</strong> Accommodation within a former seminary complex, near the castle. <span class="contact-info">Website: <a href="https://www.paolovi.it/en/" target="_blank">paolovi.it</a> | Phone: <a href="tel:+390303773511">+39 030 377 3511</a></span></li>
+                         <li><strong>Areadocks Boutique Hotel:</strong> Stylish/design option. <span class="contact-info">Website: <a href="https://www.areadocks.it/" target="_blank">areadocks.it</a> (Check hotel section)</span></li>
+                         <li><span class="note">Look for places near Piazza Loggia, Piazza Duomo, or the Santa Giulia museum complex for central access.</span></li>
+                    </ul>
+                </details>
+            </div>
+        </details>
+
+        <h2>Thursday: Discover Brescia & Travel Options</h2>
+        <p>Today presents a choice: head to Lake Maggiore for the night (Option 1) or make the longer journey directly to Saas-Fee (Option 2).</p>
+
+        <div class="alternative">
+            <h4>Option 1: Overnight in Arona (Lake Maggiore)</h4>
+             <details>
+                <summary><strong>Thursday (Option 1): Discover Brescia & Travel to Arona</strong></summary>
+                 <div class="day-plan">
+                     <ul>
+                        <li><strong>Morning (9:00 AM - 1:00 PM):</strong> Continue exploring Brescia (e.g., visit the Roman area, Santa Giulia Museum, or walk up to the Castle).</li>
+                        <li><strong>Lunch (1:00 PM):</strong> Lunch in Brescia.</li>
+                        <li><strong>Afternoon (e.g., 2:30 PM):</strong> Depart from Brescia.</li>
+                        <li><strong>Drive:</strong> Brescia to Arona (~1 hr 45 min via A4/A26dir).</li>
+                        <li><strong>Late Afternoon (e.g., 4:15 PM):</strong> Arrive in Arona on Lake Maggiore. Check into B&B.</li>
+                        <li><strong>Evening:</strong> Enjoy the lakeside atmosphere. Stroll along the 'lungolago' (promenade), perhaps have an aperitivo with lake views.</li>
+                        <li><strong>Dinner (e.g., 7:30 PM):</strong> Dinner in Arona.</li>
+                        <li><strong>Overnight:</strong> Arona.</li>
+                    </ul>
+                     <details>
+                        <summary>🏛️ Culture & Sights (Arona - Evening/Next Morning)</summary>
+                         <ul>
+                             <li><strong>Lungolago Marconi:</strong> The pleasant lakeside promenade, perfect for an evening or morning walk.</li>
+                             <li><strong>Rocca Borromea di Arona:</strong> Public park containing the ruins of a Borromeo castle, offering fantastic panoramic views over the southern end of Lake Maggiore.</li>
+                             <li><strong>Statua di San Carlo Borromeo (Sancarlone):</strong> Short drive/walk outside town. Enormous 17th-century hollow copper statue you can climb inside for views.</li>
+                             <li><strong>Arona Town Center:</strong> Explore the streets around Piazza del Popolo.</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>🍽️ Food Suggestions (Arona - Dinner)</summary>
+                         <ul>
+                            <li><strong>Anticogallo:</strong> Known for traditional Piemontese dishes. (Via Bottelli) <span class="contact-info">Website: <a href="http://www.anticogallo.com/" target="_blank">anticogallo.com</a> | Phone: <a href="tel:+39032246746">+39 0322 46746</a></span></li>
+                            <li><strong>Hostaria Al Vecchio Imbarcadero / Vecchio Portico:</strong> Restaurant with lake views, often serves fresh lake fish. (Piazza Gorizia / Piazza del Popolo) <span class="contact-info">Website: <a href="http://www.vecchioportico.it" target="_blank">vecchioportico.it</a> | Phone: <a href="tel:+390322240108">+39 0322 240108</a> (Verify name/location)</span></li>
+                            <li><strong>Strobino:</strong> Well-known pasticceria, also offers light lunches/aperitivo. (Corso Repubblica) <span class="contact-info">(Search online for current contact details)</span></li>
+                             <li><span class="note">Look for restaurants offering lake fish (like perch) or Piemontese specialties (risotto, beef).</span></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>🛏️ B&B Suggestions (Arona)</summary>
+                         <ul>
+                            <li><strong>White Lilac Romantic B&B:</strong> Highly rated, potentially quieter setting. <span class="contact-info">Website: <a href="http://www.whitelilac.it" target="_blank">whitelilac.it</a> (Verify)</span></li>
+                            <li><strong>Guesthouse Bella Vita:</strong> Offers parking. <span class="contact-info">(Search on Booking.com or similar for contact)</span></li>
+                            <li><strong>Hotel Concorde:</strong> Larger hotel option on the lakefront. <span class="contact-info">Website: <a href="https://www.hotelconcordearona.com/" target="_blank">hotelconcordearona.com</a> (Verify)</span></li>
+                            <li><span class="note">Check for places with lake views or easy access to the lungolago. Parking can be tight in the center.</span></li>
+                        </ul>
+                    </details>
+                </div>
+            </details>
+            <details>
+                <summary><strong>Friday (Option 1): Arona to Saas-Fee via Simplon Pass</strong></summary>
+                 <div class="day-plan">
+                     <ul>
+                        <li><strong>Morning (e.g., 9:00 AM):</strong> Enjoy a final cappuccino by the lake in Arona. Perhaps visit the Rocca if not done yesterday.</li>
+                        <li><strong>Late Morning (e.g., 10:30 AM):</strong> Depart from Arona. <span class="important">Check Simplon Pass conditions before leaving!</span></li>
+                        <li><strong>Drive:</strong> Arona towards Saas-Fee (~2 hr 20 min driving time + stops). Route: A26 towards Gravellona Toce, then SS33 towards Domodossola/Simplon Pass (Passo del Sempione).</li>
+                        <li><strong>Stops En Route (Suggestions):</strong>
+                            <ul>
+                                <li><strong>Lake Orta (Orta San Giulio):</strong> Slight detour (~30 min from A26 exit), incredibly charming village on a peninsula with an island monastery. Worth it if time allows.</li>
+                                <li><strong>Domodossola:</strong> Brief stop in this historic transit town before heading up the pass.</li>
+                                <li><strong>Simplon Pass Summit (2005m):</strong> Stop at the viewpoint near the Hospice or the stone eagle monument for photos (weather permitting).</li>
+                                <li><strong>Simplon Dorf:</strong> Picturesque village on the Swiss side after the summit.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Afternoon (e.g., 3:00 PM - 4:00 PM depending on stops):</strong> Drive down from Simplon Pass towards Brig, then follow signs for Visp and Saas-Fee/Saastal. Arrive at the Saas-Fee parking garage.</li>
+                        <li><strong>Arrival:</strong> Park the car (long-term parking). Take hotel shuttle or walk/electro-taxi to your accommodation in the car-free village. Check in.</li>
+                        <li><strong>Late Afternoon/Evening:</strong> Explore the charming village of Saas-Fee surrounded by high peaks.</li>
+                         <li><strong>Dinner:</strong> In Saas-Fee.</li>
+                         <li><strong>Overnight:</strong> Saas-Fee.</li>
+                    </ul>
+                     <details>
+                        <summary>🛏️ B&B/Hotel Suggestions (Saas-Fee)</summary>
+                         <ul>
+                             <li><strong>Hotel Allalin:</strong> Popular family-run hotel. <span class="contact-info">Website: <a href="https://www.allalin.ch/" target="_blank">allalin.ch</a> (Verify)</span></li>
+                             <li><strong>Boutique Lodge Spycher:</strong> Charming, well-regarded smaller lodge. <span class="contact-info">Website: <a href="https://www.spycher.ch/" target="_blank">spycher.ch</a> (Verify)</span></li>
+                             <li><strong>Walliserhof Grand-Hotel & Spa:</strong> More luxurious option. <span class="contact-info">Website: <a href="https://walliserhof-saasfee.ch/en" target="_blank">walliserhof-saasfee.ch</a> (Verify)</span></li>
+                             <li><span class="note">Saas-Fee has many chalets, apartments (Ferienwohnungen), and hotels. Prices are generally higher than Italy. Look for places offering the 'SaastalCard' (often included in summer) for free/discounted cable car access.</span></li>
+                        </ul>
+                    </details>
+                </div>
+            </details>
+        </div>
+
+        <div class="alternative">
+            <h4>Option 2: Direct Brescia to Saas-Fee (No Arona Overnight)</h4>
+             <details>
+                <summary><strong>Thursday (Option 2): Discover Brescia & Long Drive to Saas-Fee</strong></summary>
+                 <div class="day-plan">
+                      <ul>
+                        <li><strong>Morning (9:00 AM - 12:30 PM):</strong> Focused exploration of Brescia (prioritize key sights like Roman ruins, Piazza Loggia/Duomo, maybe a quick look at Santa Giulia exterior or Castle viewpoint).</li>
+                        <li><strong>Lunch (12:30 PM):</strong> Quick and efficient lunch in Brescia.</li>
+                        <li><strong>Afternoon (e.g., 1:30 PM):</strong> Depart from Brescia. <span class="important">Check Simplon Pass conditions before leaving!</span></li>
+                        <li><strong>Drive:</strong> Brescia to Saas-Fee (~3 hr 50 min driving time + stops). Route: A4 towards Milan, A8/A26 towards Gravellona Toce, then SS33 towards Domodossola/Simplon Pass.</li>
+                        <li><strong>Potential Stops En Route (Keep them brief):</strong>
+                             <ul>
+                                <li>Quick break at a service station near Milan/Lake Maggiore.</li>
+                                <li>Brief photo stop on Simplon Pass summit (weather permitting).</li>
+                            </ul>
+                         </li>
+                        <li><strong>Evening (e.g., 6:30 PM - 7:30 PM depending on stops/traffic):</strong> Arrive at the Saas-Fee parking garage. Park car, transfer to accommodation.</li>
+                        <li><strong>Dinner:</strong> Find dinner in Saas-Fee.</li>
+                        <li><strong>Overnight:</strong> Saas-Fee.</li>
+                    </ul>
+                     <details>
+                        <summary>🛏️ B&B/Hotel Suggestions (Saas-Fee)</summary>
+                          <ul>
+                             <li><strong>Hotel Allalin:</strong> Popular family-run hotel. <span class="contact-info">Website: <a href="https://www.allalin.ch/" target="_blank">allalin.ch</a> (Verify)</span></li>
+                             <li><strong>Boutique Lodge Spycher:</strong> Charming, well-regarded smaller lodge. <span class="contact-info">Website: <a href="https://www.spycher.ch/" target="_blank">spycher.ch</a> (Verify)</span></li>
+                             <li><strong>Walliserhof Grand-Hotel & Spa:</strong> More luxurious option. <span class="contact-info">Website: <a href="https://walliserhof-saasfee.ch/en" target="_blank">walliserhof-saasfee.ch</a> (Verify)</span></li>
+                             <li><span class="note">Saas-Fee has many chalets, apartments (Ferienwohnungen), and hotels. Prices are generally higher than Italy. Look for places offering the 'SaastalCard' (often included in summer) for free/discounted cable car access.</span></li>
+                        </ul>
+                    </details>
+                </div>
+            </details>
+             <details>
+                <summary><strong>Friday (Option 2): Full Day Discovering Saas-Fee</strong></summary>
+                 <div class="day-plan">
+                     <ul>
+                        <li><strong>Full Day:</strong> Enjoy Saas-Fee and its stunning Alpine surroundings.</li>
+                        <li><strong>Activities (Seasonal):</strong>
+                            <ul>
+                                <li><strong>Summer/Autumn:</strong> Hiking (countless trails), take cable cars/gondolas (e.g., Spielboden, Längfluh, Hannig), visit the Mittelallalin revolving restaurant (Metro Alpin funicular), see marmots near Spielboden.</li>
+                                <li><strong>Winter/Spring:</strong> Skiing/snowboarding, winter hiking, snowshoeing, tobogganing.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Explore:</strong> Wander through the car-free village, visit the Saaser Museum.</li>
+                        <li><strong>Meals:</strong> Lunch perhaps at a mountain restaurant with views, dinner in the village.</li>
+                        <li><strong>Overnight:</strong> Saas-Fee.</li>
+                    </ul>
+                 </div>
+            </details>
+        </div>
+
+        <h3>Highlighting the Differences (Thursday/Friday)</h3>
+         <ul>
+            <li><strong>Option 1 (Arona Overnight):</strong>
+                <ul>
+                    <li>(+) Breaks up the driving, more relaxed pace on Thursday and Friday.</li>
+                    <li>(+) Allows dedicated time to experience the charm of Lake Maggiore in Arona.</li>
+                    <li>(+) Shorter driving distances each day compared to Option 2's Thursday.</li>
+                    <li>(-) Less time available for exploring Brescia on Thursday morning.</li>
+                    <li>(-) Arrive in Saas-Fee later on Friday, meaning less time there on arrival day.</li>
+                </ul>
+            </li>
+            <li><strong>Option 2 (Direct to Saas-Fee):</strong>
+                 <ul>
+                    <li>(+) Maximizes time in Saas-Fee with a full day for exploration/activities on Friday.</li>
+                    <li>(+) Allows slightly more time in Brescia on Thursday morning.</li>
+                    <li>(-) Involves a significantly longer driving day on Thursday (~4 hours + stops).</li>
+                    <li>(-) Skips the overnight experience and focused exploration of Lake Maggiore/Arona.</li>
+                    <li>(-) Might feel more tiring due to the long drive after sightseeing.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p style="text-align:center; font-weight:bold; margin-top:30px; color: #005a9c;">Have a fantastic and safe road trip!</p>
+
+    </div>
+</body>
+</html>
