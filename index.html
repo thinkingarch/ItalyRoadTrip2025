@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 Road Trip: Bergamo to Saas-Fee</title>
+    <title>2025 RoadTrip: Bergamo to Saas-Fee</title>
     <style>
         /* Basic styling */
         body {
@@ -76,6 +76,23 @@
         }
         strong { color: #212529; }
         .day-plan { margin-top: 15px; border-left: 4px solid #6ea8d9; padding-left: 20px; }
+         /* Style for Overview Table */
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+        }
+        .overview-table th, .overview-table td {
+            border: 1px solid #dee2e6;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        .overview-table th {
+            background-color: #e9f5ff;
+            color: #005a9c;
+            font-weight: 600;
+        }
         .alternative { background-color: #fff9e6; border: 1px dashed #ffc107; padding: 20px; margin-top: 20px; border-radius: 6px; }
         .alternative h4 { color: #b38600; margin-top: 0; font-size: 1.1em; }
         .note { font-style: italic; color: #6c757d; margin-top: 8px; margin-bottom: 15px; font-size: 0.9em; padding-left: 10px; border-left: 3px solid #adb5bd; }
@@ -194,6 +211,7 @@
             details details ul li { padding-left: 5px; }
             details details ul li::before { left: -5px; } /* Adjust bullet pos */
             .modal-content-box { width: 90%; margin: 20% auto; }
+             .overview-table th, .overview-table td { padding: 8px; }
          }
          @media (max-width: 600px) {
              .timeline { margin-left: 55px; }
@@ -208,7 +226,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>2025 Road Trip: Bergamo to Saas-Fee</h1>
+        <h1>2025 RoadTrip: Bergamo to Saas-Fee</h1>
+
 
         <h2>Detailed Daily Agenda</h2>
 
@@ -657,6 +676,56 @@
             </li>
         </ul>
 
+        <h2>Overview Plan & Estimated Driving Times</h2>
+        <table class="overview-table">
+             <thead>
+                <tr>
+                    <th>Segment</th>
+                    <th>Estimated Driving Time</th>
+                    <th>Approx. Distance</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr>
+                    <td>Bergamo Center to Verona</td>
+                    <td>~1 hr 20 min</td>
+                    <td>~115 km</td>
+                </tr>
+                <tr>
+                    <td>Verona to Padova</td>
+                    <td>~1 hr 15 min</td>
+                    <td>~85 km</td>
+                </tr>
+                <tr>
+                    <td>Padova to Vicenza</td>
+                    <td>~40 min</td>
+                    <td>~36 km</td>
+                </tr>
+                <tr>
+                    <td>Vicenza to Brescia</td>
+                    <td>~1 hr</td>
+                    <td>~90 km</td>
+                </tr>
+                <tr>
+                    <td>Brescia to Arona (Option 1)</td>
+                    <td>~1 hr 45 min</td>
+                    <td>~153 km</td>
+                </tr>
+                 <tr>
+                    <td>Arona to Saas-Fee (Option 1)</td>
+                    <td>~2 hr 20 min*</td>
+                    <td>~136 km</td>
+                </tr>
+                <tr>
+                    <td>Brescia to Saas-Fee (Option 2)</td>
+                    <td>~3 hr 50 min*</td>
+                    <td>~289 km</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note">*Travel times to Saas-Fee are highly dependent on the Simplon Pass conditions and potential use of the Simplon car train (Iselle di Trasquera - Brig). Check conditions before travel.</p>
+
+
         <p style="text-align:center; font-weight:bold; margin-top:30px; color: #005a9c;">Have a fantastic and safe road trip!</p>
 
     </div>
@@ -685,7 +754,12 @@
           event.preventDefault(); // Prevent potential default button behavior
           const targetId = this.getAttribute('data-modal-target');
           const contentDiv = document.getElementById(targetId);
-          const sightName = this.previousElementSibling.textContent || 'Details'; // Get sight name from preceding sibling (strong tag)
+          // Find the preceding strong tag for the title
+          let titleElement = this.previousElementSibling;
+          while(titleElement && titleElement.tagName !== 'STRONG') {
+              titleElement = titleElement.previousElementSibling;
+          }
+          const sightName = titleElement ? titleElement.textContent : 'Details';
 
           if (contentDiv) {
             modalTitle.textContent = sightName;
