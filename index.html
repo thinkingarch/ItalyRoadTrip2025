@@ -127,6 +127,19 @@
         details details[open] ul li::before {
              content: none;
         }
+        .map-link {
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        .map-link a {
+             color: #0056b3;
+             text-decoration: none;
+             font-weight: bold;
+        }
+         .map-link a:hover {
+             text-decoration: underline;
+         }
+
 
         /* --- Info Button Styles --- */
         .info-btn {
@@ -209,7 +222,7 @@
             ul { padding-left: 0; } /* Reset padding */
              /* Adjust nested list padding */
             details details ul li { padding-left: 5px; }
-            details details ul li::before { left: -5px; } /* Adjust bullet pos */
+            /* Removed ::before override for nested lists on mobile */
             .modal-content-box { width: 90%; margin: 20% auto; }
              .overview-table th, .overview-table td { padding: 8px; }
          }
@@ -219,7 +232,7 @@
              .timeline-time { left: -60px; width: 50px; font-size: 0.85em; }
              .timeline li::before { left: -7px; width: 12px; height: 12px; top: 7px;}
              details details ul li { padding-left: 0; } /* Further adjust nested padding */
-             details details ul li::before { left: -10px; } /* Further adjust bullet pos */
+             /* Removed ::before override for nested lists on mobile */
          }
 
     </style>
@@ -228,23 +241,24 @@
     <div class="container">
         <h1>2025 RoadTrip: Bergamo to Saas-Fee</h1>
 
-
         <h2>Detailed Daily Agenda</h2>
 
         <details open> <summary><strong>Monday: Discover Bergamo & Travel to Verona</strong></summary>
             <div class="day-plan">
                  <ul class="timeline">
-                    <li><span class="timeline-time">09:00</span> <strong>Start Exploring Bergamo:</strong> Focus on Città Alta (Upper Town). Take the funicular or walk up.</li>
-                    <li><span class="timeline-time">09:15</span> <strong>Discover Città Alta:</strong> Wander Piazza Vecchia, see the Basilica di Santa Maria Maggiore & Cappella Colleoni, walk along the Venetian Walls (UNESCO).</li>
-                    <li><span class="timeline-time">12:00</span> <strong>Lunch in Bergamo Città Alta (approx. 1hr).</strong></li>
-                    <li><span class="timeline-time">13:00</span> <strong>Depart from Bergamo Center.</strong></li>
-                    <li><span class="timeline-time">~14:20</span> <strong>Arrive in Verona:</strong> Check into B&B, leave luggage, find parking.</li>
-                    <li><span class="timeline-time">15:00</span> <strong>Explore Verona:</strong> Start with Piazza Bra, see the Arena exterior, perhaps walk towards Piazza delle Erbe.</li>
+                    <li><span class="timeline-time">11:00</span> <strong>Start Exploring Bergamo:</strong> Focus on Città Alta (Upper Town). Take the funicular or walk up.</li>
+                    <li><span class="timeline-time">11:15</span> <strong>Discover Città Alta:</strong> Wander Piazza Vecchia, see the Basilica di Santa Maria Maggiore & Cappella Colleoni.</li>
+                    <li><span class="timeline-time">13:00</span> <strong>Lunch in Bergamo Città Alta (approx. 1hr).</strong></li>
+                    <li><span class="timeline-time">14:00</span> <strong>Continue Exploring:</strong> Walk along the Venetian Walls (UNESCO).</li>
+                    <li><span class="timeline-time">15:00</span> <strong>Depart from Bergamo Center.</strong></li>
+                    <li><span class="timeline-time">~16:20</span> <strong>Arrive in Verona:</strong> Check into B&B, leave luggage, find parking.</li>
+                    <li><span class="timeline-time">17:00</span> <strong>Explore Verona:</strong> Start with Piazza Bra & Arena exterior.</li>
                     <li><span class="timeline-time">19:30</span> <strong>Dinner in Verona (approx. 1hr).</strong></li>
                     <li><span class="timeline-time">Evening</span> <strong>Relax or evening stroll. Overnight in Verona.</strong></li>
                 </ul>
                  <details>
-                    <summary>🏛️ Culture & Sights (Bergamo - Morning)</summary>
+                    <summary>🏛️ Culture & Sights (Bergamo - Morning/Afternoon)</summary>
+                     <p class="map-link">Map: <a href="http://maps.apple.com/?q=Bergamo+Città+Alta" target="_blank">View Bergamo Città Alta Map (Apple Maps)</a> (Tip: Use a local tourist map for detailed walking routes)</p>
                     <ul>
                         <li>
                             <strong>Città Alta (Upper Town)</strong> <button class="info-btn" data-modal-target="bergamo-citta-alta">+</button>
@@ -288,6 +302,7 @@
                 </details>
                 <details>
                     <summary>🏛️ Culture & Sights (Verona - Afternoon/Next Morning)</summary>
+                     <p class="map-link">Map: <a href="http://maps.apple.com/?q=Verona+Centro+Storico" target="_blank">View Verona Historic Center Map (Apple Maps)</a></p>
                      <ul>
                         <li>
                             <strong>Piazza Bra</strong> <button class="info-btn" data-modal-target="verona-piazza-bra">+</button>
@@ -312,6 +327,10 @@
                         <li>
                             <strong>Castel San Pietro</strong> <button class="info-btn" data-modal-target="verona-castel-san-pietro">+</button>
                             <div class="sight-details" id="verona-castel-san-pietro">A hill overlooking Verona, site of fortifications since Roman times. The current structure is an Austrian barracks built in the 19th century on the ruins of earlier castles. While the building itself isn't typically open, the panoramic terrace (Piazzale Castel San Pietro) offers the most iconic viewpoint over Verona's historic center, the river, and its bridges. Accessible by stairs or a modern funicular.</div>
+                        </li>
+                        <li>
+                            <strong>Basilica di San Zeno Maggiore</strong> <button class="info-btn" data-modal-target="verona-san-zeno">+</button>
+                            <div class="sight-details" id="verona-san-zeno">Considered one of the finest examples of Romanesque architecture in Northern Italy. Dedicated to Verona's patron saint, St. Zeno, the current structure dates mainly from the 12th-14th centuries. It's famed for its magnificent facade with a large rose window, stunning bronze doors depicting biblical scenes, a beautiful cloister, and Andrea Mantegna's important Renaissance altarpiece inside. It lies slightly west of the main historic center.</div>
                         </li>
                     </ul>
                 </details>
@@ -341,7 +360,7 @@
             <summary><strong>Tuesday: Discover Verona & Travel to Padova</strong></summary>
             <div class="day-plan">
                  <ul class="timeline">
-                    <li><span class="timeline-time">09:00</span> <strong>Continue Exploring Verona:</strong> Visit key sites like Arena interior, Juliet's House, Piazza delle Erbe, Ponte Pietra, Castel San Pietro viewpoint.</li>
+                    <li><span class="timeline-time">09:00</span> <strong>Continue Exploring Verona:</strong> Visit key sites like Arena interior, Juliet's House, Piazza delle Erbe, Ponte Pietra, Castel San Pietro viewpoint, Basilica di San Zeno (allow travel time).</li>
                     <li><span class="timeline-time">13:00</span> <strong>Lunch in Verona (approx. 1hr).</strong></li>
                     <li><span class="timeline-time">14:00</span> <strong>Depart from Verona.</strong></li>
                     <li><span class="timeline-time">~15:15</span> <strong>Arrive in Padova:</strong> Check into B&B, find parking.</li>
@@ -351,6 +370,7 @@
                 </ul>
                  <details>
                     <summary>🏛️ Culture & Sights (Padova - Afternoon/Next Morning)</summary>
+                     <p class="map-link">Map: <a href="http://maps.apple.com/?q=Padova+Centro+Storico" target="_blank">View Padova Historic Center Map (Apple Maps)</a></p>
                      <ul>
                         <li>
                             <strong>Cappella degli Scrovegni</strong> <button class="info-btn" data-modal-target="padova-scrovegni">+</button> <span class="important">(Booking Essential!)</span>
@@ -402,21 +422,21 @@
         </details>
 
         <details>
-            <summary><strong>Wednesday: Discover Padova, Lunch in Vicenza, Travel to Brescia</strong></summary>
+            <summary><strong>Wednesday: Discover Padova, Explore Vicenza, Travel to Brescia</strong></summary>
             <div class="day-plan">
                  <ul class="timeline">
                     <li><span class="timeline-time">09:00</span> <strong>Finish Exploring Padova:</strong> Visit Scrovegni Chapel (*must have pre-booked slot*), Basilica di Sant'Antonio interior, wander the markets (Piazza delle Erbe/Frutta).</li>
                     <li><span class="timeline-time">11:45</span> <strong>Depart from Padova.</strong></li>
                     <li><span class="timeline-time">~12:25</span> <strong>Arrive in Vicenza.</strong> Park near center.</li>
-                    <li><span class="timeline-time">12:30</span> <strong>Brief Vicenza Exploration & Lunch:</strong> Walk Piazza dei Signori, see Basilica Palladiana/Teatro Olimpico exteriors. Have lunch (approx. 1hr).</li>
-                    <li><span class="timeline-time">14:15</span> <strong>Depart from Vicenza.</strong></li>
-                    <li><span class="timeline-time">~15:15</span> <strong>Arrive in Brescia:</strong> Check into B&B.</li>
-                    <li><span class="timeline-time">16:00</span> <strong>Explore Brescia:</strong> Initial walk - Piazza della Loggia, Piazza Paolo VI (Duomos).</li>
+                    <li><span class="timeline-time">12:30</span> <strong>Explore Vicenza & Lunch:</strong> Allocate ~4.5 hours total. Includes ~1 hour lunch break and ~3.5 hours to explore Piazza dei Signori, Basilica Palladiana, Teatro Olimpico (consider interior visit), Corso Palladio.</li>
+                    <li><span class="timeline-time">17:00</span> <strong>Depart from Vicenza.</strong></li>
+                    <li><span class="timeline-time">~18:00</span> <strong>Arrive in Brescia:</strong> Check into B&B.</li>
                     <li><span class="timeline-time">19:30</span> <strong>Dinner in Brescia (approx. 1hr).</strong></li>
-                    <li><span class="timeline-time">Evening</span> <strong>Relax. Overnight in Brescia.</strong></li>
+                    <li><span class="timeline-time">Evening</span> <strong>Brief evening walk (e.g., Piazza Loggia). Overnight in Brescia.</strong></li>
                 </ul>
                  <details>
-                    <summary>🏛️ Culture & Sights (Vicenza - Brief Stop)</summary>
+                    <summary>🏛️ Culture & Sights (Vicenza - Extended Stop)</summary>
+                      <p class="map-link">Map: <a href="http://maps.apple.com/?q=Vicenza+Centro+Storico" target="_blank">View Vicenza Historic Center Map (Apple Maps)</a></p>
                       <ul>
                         <li>
                             <strong>Piazza dei Signori</strong> <button class="info-btn" data-modal-target="vicenza-piazza">+</button>
@@ -424,15 +444,19 @@
                         </li>
                         <li>
                             <strong>Basilica Palladiana</strong> <button class="info-btn" data-modal-target="vicenza-basilica">+</button>
-                            <div class="sight-details" id="vicenza-basilica">Not a church, but Vicenza's medieval Palazzo della Ragione (town hall), dramatically encased by Andrea Palladio's innovative Renaissance loggias (arcades) built between 1549 and 1614. This project established Palladio's fame. The distinctive double-layered structure with Serlian arches is a masterpiece of architectural harmony and ingenuity, a key monument of the Italian Renaissance (UNESCO site).</div>
+                            <div class="sight-details" id="vicenza-basilica">Not a church, but Vicenza's medieval Palazzo della Ragione (town hall), dramatically encased by Andrea Palladio's innovative Renaissance loggias (arcades) built between 1549 and 1614. This project established Palladio's fame. The distinctive double-layered structure with Serlian arches is a masterpiece of architectural harmony and ingenuity, a key monument of the Italian Renaissance (UNESCO site). Consider visiting the upper terrace if open.</div>
                         </li>
                         <li>
                             <strong>Teatro Olimpico</strong> <button class="info-btn" data-modal-target="vicenza-teatro">+</button>
-                            <div class="sight-details" id="vicenza-teatro">The final work of Andrea Palladio (completed by Scamozzi after his death, 1580-1585), it's the oldest surviving indoor theatre of the Renaissance. Inspired by ancient Roman theatres, it features a semi-elliptical seating area and an elaborate stage front. Most famously, it includes Scamozzi's stunning fixed stage scenery depicting the streets of Thebes, using clever perspective to create an illusion of depth. A UNESCO World Heritage site.</div>
+                            <div class="sight-details" id="vicenza-teatro">The final work of Andrea Palladio (completed by Scamozzi after his death, 1580-1585), it's the oldest surviving indoor theatre of the Renaissance. Inspired by ancient Roman theatres, it features a semi-elliptical seating area and an elaborate stage front. Most famously, it includes Scamozzi's stunning fixed stage scenery depicting the streets of Thebes, using clever perspective to create an illusion of depth. A UNESCO World Heritage site. An interior visit is highly recommended.</div>
                         </li>
                          <li>
-                             <strong>Corso Palladio</strong> <button class="info-btn" data-modal-target="vicenza-corso">+</button>
-                             <div class="sight-details" id="vicenza-corso">The main street of Vicenza's historic center, tracing the path of the ancient Roman Decumanus Maximus. It's lined with numerous elegant palaces (palazzi), many designed by Andrea Palladio or his followers, showcasing the city's wealth and architectural heritage during the Renaissance and subsequent centuries. It offers a visual journey through Vicenza's architectural evolution.</div>
+                             <strong>Corso Palladio & Side Streets</strong> <button class="info-btn" data-modal-target="vicenza-corso">+</button>
+                             <div class="sight-details" id="vicenza-corso">The main street of Vicenza's historic center, tracing the path of the ancient Roman Decumanus Maximus. It's lined with numerous elegant palaces (palazzi), many designed by Andrea Palladio or his followers (like Palazzo Chiericati - now a museum, Palazzo Thiene). Explore the main Corso and adjacent streets like Contrà Porti to appreciate the concentration of Palladian architecture that earned Vicenza its UNESCO status.</div>
+                         </li>
+                         <li>
+                             <strong>Palladio Museum (Palazzo Barbaran da Porto)</strong> <button class="info-btn" data-modal-target="vicenza-palladio-museum">+</button>
+                             <div class="sight-details" id="vicenza-palladio-museum">Located in another Palladian palace, this museum is dedicated to the life and work of Andrea Palladio, offering models, drawings, and insights into his architectural principles and influence. A good stop if you have a strong interest after seeing his works.</div>
                          </li>
                     </ul>
                 </details>
@@ -448,6 +472,7 @@
                 </details>
                  <details>
                     <summary>🏛️ Culture & Sights (Brescia - Afternoon/Next Morning)</summary>
+                       <p class="map-link">Map: <a href="http://maps.apple.com/?q=Brescia+Centro+Storico" target="_blank">View Brescia Historic Center Map (Apple Maps)</a></p>
                        <ul>
                         <li>
                             <strong>Piazza della Loggia</strong> <button class="info-btn" data-modal-target="brescia-loggia">+</button>
@@ -513,6 +538,7 @@
                     </ul>
                      <details>
                         <summary>🏛️ Culture & Sights (Arona - Evening/Next Morning)</summary>
+                           <p class="map-link">Map: <a href="http://maps.apple.com/?q=Arona+NO" target="_blank">View Arona Map (Apple Maps)</a></p>
                            <ul>
                              <li>
                                  <strong>Lungolago Marconi</strong> <button class="info-btn" data-modal-target="arona-lungolago">+</button>
@@ -676,6 +702,19 @@
             </li>
         </ul>
 
+         <h2>Estimated Exploration Time per City</h2>
+        <p class="note">This summarizes the approximate time allocated for sightseeing and exploring within each city based on the suggested timeline. It excludes travel time, meal breaks, check-in/out, etc.</p>
+        <ul>
+             <li><strong>Bergamo:</strong> ~ 3 hours (Monday morning/afternoon)</li>
+             <li><strong>Verona:</strong> ~ 6 hours 10 minutes (spread over Monday afternoon & Tuesday morning)</li>
+             <li><strong>Padova:</strong> ~ 5 hours 15 minutes (spread over Tuesday afternoon & Wednesday morning)</li>
+             <li><strong>Vicenza:</strong> ~ 3 hours 30 minutes (Wednesday afternoon)</li>
+             <li><strong>Brescia:</strong> ~ 6 hours 30 minutes (spread over Wednesday afternoon & Thursday morning)</li>
+             <li><strong>Arona (Option 1 only):</strong> ~ 3 hours (spread over Thursday afternoon & Friday morning)</li>
+             <li><strong>Saas-Fee:</strong> Arrival afternoon/evening + Full day Friday (Option 2) or Arrival afternoon/evening (Option 1) - depends on your onward plans.</li>
+        </ul>
+
+
         <h2>Overview Plan & Estimated Driving Times</h2>
         <table class="overview-table">
              <thead>
@@ -732,7 +771,7 @@
 
     <div id="infoModal" class="modal">
       <div class="modal-content-box">
-        <span class="close-btn">&times;</span>
+        <span class="close-btn">×</span>
         <h3 id="modalTitle">Sight Information</h3>
         <p id="modalText">Details about the sight will appear here.</p>
       </div>
